@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Ambiente</title>
+    <link rel="stylesheet" href="../CSS/inver.css">
+   
+</head>
+<body>
+    <div class="container">
+        <img src="../img/logosena.png" alt="Logo SENA" class="logo">
+        <h1 class="title">Inventario De Ambiente</h1>
+        <div class="date-time-container">
+            <input type="date" id="fecha" name="fecha" readonly>
+            <div id="hora"></div>
+        </div>
+        <script>
+            // Set the current date in the date input field
+            document.addEventListener('DOMContentLoaded', function() {
+                const dateInput = document.getElementById('fecha');
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+            });
+            
+            function actualizarHora() {
+                const ahora = new Date();
+                const horas = ahora.getHours().toString().padStart(2, '0');
+                const minutos = ahora.getMinutes().toString().padStart(2, '0');
+                const segundos = ahora.getSeconds().toString().padStart(2, '0');
+                document.getElementById('hora').textContent = `${horas}:${minutos}:${segundos}`;
+            }
+            
+            setInterval(actualizarHora, 1000); // 1000ms = 1s
+            window.onload = actualizarHora;
+            
+        </script>
+        <form id="inventoryForm">
+            <table class="form-table">
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Disponibilidad</th>
+                        <th>Cantidad</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monitores</td>
+                        <td class="options">
+                            <label><input type="radio" name="monitoresDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="monitoresDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="monitoresCantidad" min="0"></td>
+                        <td><input type="text" name="monitoresDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Torres</td>
+                        <td class="options">
+                            <label><input type="radio" name="torresDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="torresDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="torresCantidad" min="0"></td>
+                        <td><input type="text" name="torresDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Teclados</td>
+                        <td class="options">
+                            <label><input type="radio" name="tecladosDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="tecladosDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="tecladosCantidad" min="0"></td>
+                        <td><input type="text" name="tecladosDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Mouses</td>
+                        <td class="options">
+                            <label><input type="radio" name="mousesDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="mousesDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="mousesCantidad" min="0"></td>
+                        <td><input type="text" name="mousesDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Sillas</td>
+                        <td class="options">
+                            <label><input type="radio" name="sillasDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="sillasDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="sillasCantidad" min="0"></td>
+                        <td><input type="text" name="sillasDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Mesas</td>
+                        <td class="options">
+                            <label><input type="radio" name="mesasDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="mesasDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="mesasCantidad" min="0"></td>
+                        <td><input type="text" name="mesasDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Tablero</td>
+                        <td class="options">
+                            <label><input type="radio" name="tableroDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="tableroDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="tableroCantidad" min="0"></td>
+                        <td><input type="text" name="tableroDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Aire Acondicionado</td>
+                        <td class="options">
+                            <label><input type="radio" name="aireAcondicionadoDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="aireAcondicionadoDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="aireAcondicionadoCantidad" min="0"></td>
+                        <td><input type="text" name="aireAcondicionadoDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Televisor</td>
+                        <td class="options">
+                            <label><input type="radio" name="televisorDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="televisorDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="televisorCantidad" min="0"></td>
+                        <td><input type="text" name="televisorDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Proyector</td>
+                        <td class="options">
+                            <label><input type="radio" name="proyectorDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="proyectorDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="proyectorCantidad" min="0"></td>
+                        <td><input type="text" name="proyectorDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Modelo De Internet</td>
+                        <td class="options">
+                            <label><input type="radio" name="modeloDeInternetDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="modeloDeInternetDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="modeloDeInternetCantidad" min="0"></td>
+                        <td><input type="text" name="modeloDeInternetDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Cortinas</td>
+                        <td class="options">
+                            <label><input type="radio" name="cortinasDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="cortinasDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="cortinasCantidad" min="0"></td>
+                        <td><input type="text" name="cortinasDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Conectores Eléctricos</td>
+                        <td class="options">
+                            <label><input type="radio" name="conectoresElectricosDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="conectoresElectricosDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="conectoresElectricosCantidad" min="0"></td>
+                        <td><input type="text" name="conectoresElectricosDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Extensión</td>
+                        <td class="options">
+                            <label><input type="radio" name="extensionDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="extensionDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="extensionCantidad" min="0"></td>
+                        <td><input type="text" name="extensionDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Marcadores</td>
+                        <td class="options">
+                            <label><input type="radio" name="marcadoresDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="marcadoresDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="marcadoresCantidad" min="0"></td>
+                        <td><input type="text" name="marcadoresDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Borrador De Tablero</td>
+                        <td class="options">
+                            <label><input type="radio" name="borradorDeTableroDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="borradorDeTableroDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="borradorDeTableroCantidad" min="0"></td>
+                        <td><input type="text" name="borradorDeTableroDescripcion"></td>
+                    </tr>
+                    <tr>
+                        <td>Muebles</td>
+                        <td class="options">
+                            <label><input type="radio" name="mueblesDisponibilidad" value="sí" required> Sí</label>
+                            <label><input type="radio" name="mueblesDisponibilidad" value="no" required> No</label>
+                        </td>
+                        <td><input type="number" name="mueblesCantidad" min="0"></td>
+                        <td><input type="text" name="mueblesDescripcion"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-group">
+                <button type="submit" class="submit-button">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('inventoryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const entries = Array.from(formData.entries());
+            const result = entries.map(entry => `${entry[0]}: ${entry[1]}`).join('\n');
+            alert(`Inventario enviado:\n${result}`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+    background-image: url("../img/SENA4.jpg");
+    font-family: 'Roboto', sans-serif;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.login-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+}
+.login-box img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; 
+    height: auto;
+}
+.login-box h1 {
+    margin-top: 70px; 
+    margin-bottom: 20px;
+}
+.textbox {
+    position: relative;
+    margin-bottom: 30px;
+}
+.textbox i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+.textbox input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.btn, .btn-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.btn {
+    background-color: #312e2e;
+}
+.btn:hover {
+    background-color: #454945;
+}
+.btn-submit {
+    background-color: #28a745;
+}
+.btn-submit:hover {
+    background-color: #218838;
+}
+.forgot-link {
+    color: #333;
+    text-decoration: none;
+}
+.forgot-link:hover {
+    text-decoration: underline;
+}
+.logout-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #28943f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

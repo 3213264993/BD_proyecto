@@ -1,0 +1,45 @@
+CREATE DATABASE AmbiControl;
+
+USE AmbiControl;
+
+-- Tabla para los usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre_completo VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    Tipo_documento ENUM('CC', 'TI', 'PP') NOT NULL,
+    Numero_documento VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- Tabla para asignaciones de ambientes
+CREATE TABLE asignaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Numero_documento VARCHAR(50) NOT NULL,
+    Tipo_asignacion ENUM('Entrada', 'Salida') NOT NULL,
+    Numero_ambiente VARCHAR(50) NOT NULL,
+    Fecha DATE NOT NULL DEFAULT (CURRENT_DATE),
+    Hora TIME NOT NULL DEFAULT (CURRENT_TIME),
+    FOREIGN KEY (Numero_documento) REFERENCES usuarios(Numero_documento)
+);
+
+-- Tabla para observaciones
+CREATE TABLE observaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Numero_documento VARCHAR(50) NOT NULL,
+    Observacion TEXT NOT NULL,
+    Fecha DATE NOT NULL DEFAULT (CURRENT_DATE),
+    Hora TIME NOT NULL DEFAULT (CURRENT_TIME),
+    FOREIGN KEY (Numero_documento) REFERENCES usuarios(Numero_documento)
+);
+
+-- Tabla para el inventario
+CREATE TABLE inventario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Hora TIME NOT NULL,
+    Elemento VARCHAR(255) NOT NULL,
+    Disponibilidad ENUM('sí', 'no') NOT NULL,
+    Cantidad INT NOT NULL,
+    Descripcion TEXT
+);

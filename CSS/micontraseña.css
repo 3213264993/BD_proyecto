@@ -1,0 +1,56 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/SENA4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-container {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow:  20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo {
+    max-width: 60px; 
+    margin-bottom: 20px; 
+}
+
+h2 {
+    margin: 20px ;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #3a965d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #289e50;
+}

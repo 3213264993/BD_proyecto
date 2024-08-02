@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbiControl - Inicio de Sesión</title>
+    <link rel="stylesheet" href="./CSS/ingreso.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="./img/logosena.png" alt="Logo SENA">
+            <button class="logout-btn" onclick="confirmLogout()">Cerrar Sesión</button>
+
+            <h1>AmbiControl</h1>
+            <p>Bienvenido, por favor inicie sesión</p>
+            <form id="loginForm" action="login.php" method="POST">
+                <div class="textbox">
+                    <i class="fas fa-id-card"></i> 
+                    <input type="text" placeholder="Número_Documento" name="Numero_Documento" required>
+                </div>
+                <div class="textbox">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="password" name="password" required>
+                </div>
+                <button type="submit" class="btn" onclick="redirectTo('///C:/xampp/htdocs/proyecto.cdae/paginas/pagina2.html')">Ingresar</button>
+                <br>
+                <button type="button" class="btn-submit" onclick="redirectTo('///C:/xampp/htdocs/proyecto.cdae/paginas/registro.html')">Regístrese</button>
+                <br>
+                <a href="file:///C:/xampp/htdocs/proyecto.cdae/paginas/contrase%C3%B1a.html" class="forgot-link">¿Olvidaste tu contraseña?</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        function confirmLogout() {
+            if (confirm('¿Seguro que quiere cerrar sesión?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+
+            event.preventDefault();
+            this.submit();
+        });
+    </script>
+</body>
+</html>
