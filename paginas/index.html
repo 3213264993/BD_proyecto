@@ -10,7 +10,7 @@
     <div class="container">
         <img src="../img/logosena.png" alt="Logo SENA" class="logo">
         <h2>Registro de Usuario</h2>
-        <form action="registro.php" method="post">
+        <form action="../procesar_formulario.php" method="post">
             <input type="text" name="Nombre_completo" placeholder="Nombre_completo" required>
             <input type="Email" name="Email" placeholder="Email" required>
             <input type="Password" name="Password" placeholder="Password" required>
@@ -21,7 +21,7 @@
                 <option value="PP">Pasaporte</option>
             </select>
             <input type="text" name="Numero_documento" placeholder="Número_documento" required>
-            <button type="submit">Registrarse</button>
+            <input type="submit" class="btn" name = "Registrarse">
         </form>
         <br>
         <a href="file:///C:/xampp/htdocs/proyecto.cdae/index.html" class="link-button">INICIO</a>

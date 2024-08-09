@@ -5,7 +5,7 @@ USE AmbiControl;
 -- Tabla para los usuarios
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre_completo VARCHAR(255) NOT NULL,
+    Nombre_completo TEXT(255) NOT NULL,
     Email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     Tipo_documento ENUM('CC', 'TI', 'PP') NOT NULL,
