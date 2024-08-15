@@ -1,3 +1,4 @@
+/* General */
 body {
     margin: 0;
     padding: 0;
@@ -9,16 +10,18 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.87); /* Fondo blanco con transparencia */
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    max-width: 600px; /* Ancho máximo del contenedor */
+    width: 100%; /* Ancho completo del contenedor */
     position: relative; 
+    text-align: center; /* Centrar texto */
 }
+
 .header {
     position: absolute;
     top: 10px;
@@ -27,6 +30,7 @@ body {
     gap: 10px;
     z-index: 1000;
 }
+
 .header a {
     text-decoration: none;
     color: #fafafa;
@@ -36,6 +40,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .logo {
     position: absolute;
     top: 10px;
@@ -43,47 +48,149 @@ body {
     width: 50px; 
     height: auto;
 }
+
 h1 {
     margin-bottom: 20px;
     margin-top: 30px; 
+    font-size: 1.5rem; /* Tamaño de letra mediano para el título */
+    color: #333; /* Color del título */
+    font-weight: normal; /* Quitar negrilla */
 }
+
 .form-group {
     margin-bottom: 20px;
     text-align: left;
 }
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    font-weight: normal; /* Quitar negrilla */
 }
-.form-group input, .form-group select {
+
+.form-group input, 
+.form-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
 }
+
 .btn-submit {
-    width: 100%;
+    width: 150px; /* Ajustar el ancho del botón "Guardar" */
     background: #333;
-    border: none;
+    border: 2px solid rgb(250, 250, 250);
+    margin-bottom: 10px;
+    border-radius: 4px;
     padding: 10px;
-    border-radius: 5px;
     cursor: pointer;
     color: #ffffff;
     font-size: 16px;
 }
+
 .btn-submit:hover {
     background: #555;
 }
+
 .form-footer {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Colocar los botones en una columna */
+    align-items: center; /* Centrar los botones */
 }
-.form-footer a {
-    display: inline-block;
-    text-decoration: none;
-    color: #f5f5f5;
-    background: #28a745;
-    padding: 10px 35px;
-    border-radius: 5px;
-    margin-top: 10px;
+
+.btn-custom-black {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #3d973d;
+}
+
+.btn-custom-black:hover {
+    background-color: #3b8334;
+}
+
+.btn-custom-green {
+    background-color: #28a745;
+    color: #fff;
+    border: 1px solid #28a745;
+}
+
+.btn-custom-green:hover {
+    background-color: #218838;
+}
+
+.btn-custom-warning {
+    background-color: #2fa857;
+    color: #fff;
+    border: 1px solid #ffffff;
+}
+
+.btn-custom-warning:hover {
+    background-color: #36963b;
+    border-color: #279e54;
+    color: #fff; /* Ajustar el color del texto si es necesario */
+}
+/* Botón Guardar */
+.btn-submit {
+    width: 70%; /* Ajusta el ancho del botón Guardar para que sea más largo */
+    background: #141414;
+    border: 2px solid rgb(250, 250, 250);
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background: #2d8a44;
+}
+
+/* Botón Observaciones */
+.btn-custom-warning {
+    width: 60%; /* Ajusta el ancho del botón Observaciones */
+    background-color: #227922;
+    color: #fff;
+    border: 1px solid #2e3631;
+}
+
+.btn-custom-warning:hover {
+    background-color: #144923;
+    border-color: #cecece;
+    color: #fff; /* Ajusta el color del texto si es necesario */
+}
+/* Botón Inicio */
+.btn-home {
+    background-color: #000; /* Color de fondo negro */
+    color: #fff; /* Color del texto blanco */
+    border: 1px solid #000; /* Borde negro */
+    padding: 10px 20px; /* Espaciado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 5px; /* Margen alrededor del botón */
+}
+
+.btn-home:hover {
+    background-color: #28a745; /* Color de fondo verde al seleccionar */
+    border-color: #28a745; /* Borde verde al seleccionar */
+}
+
+/* Botón Inventario */
+.btn-inventory {
+    background-color: #28a745; /* Color de fondo verde */
+    color: #fff; /* Color del texto blanco */
+    border: 1px solid #28a745; /* Borde verde */
+    padding: 10px 20px; /* Espaciado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 5px; /* Margen alrededor del botón */
+}
+
+.btn-inventory:hover {
+    background-color: #6c757d; /* Color de fondo gris al seleccionar */
+    border-color: #6c757d; /* Borde gris al seleccionar */
 }

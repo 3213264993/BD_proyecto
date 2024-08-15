@@ -1,19 +1,21 @@
+<!-- reset_password_request.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer Contraseña</title>
-    <link rel="stylesheet" href="../CSS/micontraseña.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="reset-container">
-        <img src="../img/logosena.png" alt="Logo" class="logo">
-        <h2>Restablecer Contraseña</h2>
-        <form action="reset_password.php" method="POST">
-            <label for="Email">Correo Electrónico:</label>
-            <input type="Email" id="Email" name="Email" required>
-            <button type="submit">Enviar Enlace de Restablecimiento</button>
+    <div class="container mt-5">
+        <h2 class="text-center">Restablecer Contraseña</h2>
+        <form action="contraseña.php" method="POST">
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar enlace de restablecimiento</button>
         </form>
     </div>
 </body>

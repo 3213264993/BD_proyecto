@@ -1,6 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-image: url("../img/SENA4.jpg");
+    background: url('../img/SENA4.jpg') no-repeat center center fixed; 
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -8,73 +7,43 @@ body {
     height: 100vh;
     margin: 0;
 }
+
 .container {
-    position: relative;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    padding: 20px;
+}
+
+.welcome-container {
     text-align: center;
-    max-width: 400px;
-    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco transparente */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 40px;
 }
+
 .logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px; 
-    height: auto;
-}
-h2 {
-    margin-top: 30px; 
+    width: 100px; /* Tamaño del logo */
     margin-bottom: 20px;
 }
-form {
-    display: flex;
-    flex-direction: column;
+
+.welcome-title {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 40px; /* Separar del botón */
+    color: #000000; /* Color del texto del título */
 }
-button {
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+
+.btn-custom {
+    background-color: #2b972b; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
     border-radius: 5px;
-    background: #48f170;
-    color: #020202;
-    cursor: pointer;
-}
-button:hover {
-    background: #555;
-}
-.menu-toggle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 200px;
-    z-index: 1000;
-}
-.dropdown-menu a {
-    display: block;
-    padding: 10px;
-    color: #333;
     text-decoration: none;
-    border-bottom: 1px solid #ccc;
+    display: inline-block;
 }
-.dropdown-menu a:hover {
-    background: #eee;
-}
-.dropdown-menu a:last-child {
-    border-bottom: none;
+
+.btn-custom:hover {
+    background-color: #000000; /* Color al pasar el ratón */
+    color: white;
 }

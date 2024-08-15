@@ -42,7 +42,7 @@ button {
     width: 100%;
     padding: 10px;
     background-color: #28a745;
-    color: white;
+    color: rgb(20, 156, 43);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -55,10 +55,126 @@ button:hover {
     display: inline-block;
     padding: 10px 20px;
     background-color:  #414642;
-    color: white;
+    color: rgb(239, 255, 247);
     text-decoration: none;
     border-radius: 5px;
 }
 .link-button:hover {
-    background-color: #287e2f;
+    background-color: #000000;
+}
+
+.btn{
+    color: rgb(244, 255, 250);
+}
+        .container {
+            max-width: 500px;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad para transparencia */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 120px;
+        }
+        .btn-success {
+            background-color: forestgreen;
+            border-color: forestgreen;
+        }
+        .btn-link {
+            color: #1c1e20;
+            background-color: transparent;
+            border: none;
+        }
+        .position-relative {
+            position: relative;
+        }
+        #togglePassword {
+            cursor: pointer;
+        }
+        .select-container {
+            position: relative;
+            display: inline-block;
+        }
+
+
+    
+        .icon {
+            position: absolute;
+            top: 50%;
+            right: 10px; /* Ajusta según el padding del select */
+            transform: translateY(-50%);
+            pointer-events: none; /* Permite hacer clic en el select sin que el ícono interfiera */
+            font-size: 16px; /* Tamaño del ícono */
+            color: #666; /* Color del ícono */
+        }
+        .btn-black {
+            background-color: #000000; /* Color negro */
+            color: #ffffff; /* Texto blanco */
+        }
+        
+        .btn-black:hover {
+            background-color: #333333; /* Un gris oscuro para el hover */
+            color: #ffffff; /* Texto blanco */
+        }
+        
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px; 
+            height: auto;
+        }
+        
+        .container {
+            margin-top: 50px; /* Ajusta este valor según sea necesario */
+        }
+.select-container {
+    position: relative;
+}
+.position-relative {
+    position: relative;
+}
+
+.bi-eye {
+    position: absolute;
+    right: 10px; /* Ajusta según sea necesario */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 50px; /* Asegura que el ícono esté encima del campo */
+}
+.form-control {
+    padding-right: 3rem; /* Ajusta este valor según el tamaño del ícono */
+}
+.position-relative {
+    position: relative;
+}
+
+.bi-eye {
+    position: absolute;
+    right: 10px; /* Ajusta este valor según sea necesario */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1; /* Asegura que el ícono esté encima del campo */
+}
+
+.input-container {
+    position: relative;
+}
+
+.form-control {
+    padding-right: 2.5rem; /* Ajusta según el tamaño del ícono */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.5rem; /* Ajusta según el espacio necesario */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2; /* Asegura que el ícono esté encima del campo */
 }

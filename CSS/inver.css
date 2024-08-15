@@ -69,3 +69,93 @@ input[type="number"], input[type="text"] {
     align-items: center;
     gap: 10px;
 }
+/* Estilo para el botón de historial */
+.history-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 10px; /* Añadir espacio entre los botones */
+}
+
+.history-button:hover {
+    background-color: grey;
+}
+
+/* Estilo para el botón de enviar */
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 110px; /* Botón más largo */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-bottom: 10px; /* Añadir espacio entre los botones */
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los botones */
+}
+
+.submit-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.submit-button:hover {
+    background-color: darkgreen;
+}
+.history-button {
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.history-button:hover {
+    background-color: grey;
+}
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.form-table th, .form-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.form-table .options input {
+    margin-right: 5px;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+}
+.logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}

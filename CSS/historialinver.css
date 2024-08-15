@@ -1,0 +1,89 @@
+
+html, body {
+height: 100%;
+margin: 0;
+}
+
+body {
+    background-image: url('../img/SENA4.jpg'); background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+/* Estilos generales de la tabla */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 5px;
+    font-size: 20px;
+    text-align: left;
+    color: black;
+}
+
+.form-table th, .form-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.form-table thead {
+    background-color: #f2f2f2;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 250px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
+
+/* Estilo para el botón de imprimir */
+.print-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+    background-color: grey;
+}
+
+/* Estilo para el botón de descargar */
+.download-button {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: grey;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    max-width: 860px;
+    margin: 50px auto;
+}
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.logo {
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}

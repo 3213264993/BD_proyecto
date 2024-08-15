@@ -1,94 +1,140 @@
+/* General */
+
 body {
+    background: url('../img//SENA4.jpg') no-repeat center center fixed;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url("../img/SENA4.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
+
+/* Container */
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.753); /* Fondo blanco más transparente */
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-    position: relative; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    max-width: 600px; /* Ancho máximo del contenedor */
+    width: 80%; /* Ancho completo del contenedor */
+    position: relative;
+    text-align: center; /* Centrar texto */
 }
+
+/* Header */
 .header {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #28a745;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
 }
+
 .header a {
     text-decoration: none;
-    color: #ffffff;
+    color: #fafafa;
     font-size: 16px;
+    background-color: #000; /* Botón de Inicio */
+    padding: 12px 20px; /* Aumenta el tamaño del botón de Inicio */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+/* Logo */
 .logo {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 50px; 
+    width: 50px;
     height: auto;
 }
 
+/* Title */
 h1 {
     margin-bottom: 20px;
-    margin-top: 60px; 
+    margin-top: 30px;
+    font-size: 1.5rem; /* Tamaño de letra mediano para el título */
+    color: #333; /* Color del título */
 }
+
+/* Form Group */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: left;
 }
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
+
+label {
+    font-weight: normal; /* Quitar negrilla */
 }
-.form-group input, .form-group textarea {
-    width: 100%;
+
+input[type="text"], textarea {
+    width: 100%; /* Ajusta el ancho de los campos del formulario */
     padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-.btn-submit {
-    width: 100%;
-    background: #333;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 16px;
-}
-.btn-submit:hover {
-    background: #555;
-}
-.btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
     border-radius: 4px;
 }
-.btn:hover {
-    background-color: #218838;
+
+/* Eliminar la flecha del área de texto */
+textarea {
+    resize: none; /* Evitar el redimensionamiento */
 }
-.form-footer {
-    margin-top: 30px;
+
+/* Submit Button */
+.btn-submit {
+    width: 100%; /* Ajusta el ancho del botón Enviar para que sea más ancho */
+    background: #000;
+    border: 2px solid #fafafa;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
-.form-footer .btn {
-    width: 18%;
+
+.btn-submit:hover {
+    background: #28a745; /* Cambia a verde al seleccionar */
 }
+
+/* Navigation Buttons */
+.btn-nav {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-black {
+    background-color: #333;
+}
+
+.btn-black:hover {
+    background-color: #555; /* Cambia a gris al seleccionar */
+}
+
+.btn-green {
+    background-color: #28a745;
+}
+
+.btn-green:hover {
+    background-color: #6c757d; /* Cambia a gris al seleccionar */
+}
+
+/* Historial Button */
+#historial-btn {
+    font-size: 18px;
+    padding: 10px 30px;
+    background-color: #28a745;
+}
+
+#historial-btn:hover {
+    background-color: #6c757d; /* Gris al seleccionar */
+}
+

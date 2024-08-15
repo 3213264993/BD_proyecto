@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Inventario</title>
+    <link rel="stylesheet" href="../CSS/historialinver.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Historial De Inventario</h1>
+        <table id="historialTable" class="form-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Elemento</th>
+                    <th>Disponibilidad</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertará el historial -->
+            </tbody>
+        </table>
+        <div class="form-group">
+            <button onclick="imprimirHistorial()">Imprimir</button>
+            <button onclick="descargarHistorial()">Descargar</button>
+        </div>
+    </div>
+
+    <script>
+        // Cargar el historial desde localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const historial = JSON.parse(localStorage.getItem('historial')) || [];
+            const tbody = document.getElementById('historialTable').querySelector('tbody');
+            
+            historial.forEach((entry, index) => {
+                const row = document.createElement('tr');
+                
+                const date = new Date(entry.fecha).toLocaleDateString();
+                const time = new Date().toLocaleTimeString();
+                row.innerHTML = `
+                    <td>${date}</td>
+                    <td>${time}</td>
+                    <td>${entry.monitoresCantidad}</td>
+                    <td>${entry.monitoresDisponibilidad}</td>
+                    <td>${entry.monitoresCantidad}</td>
+                    <td>${entry.monitoresDescripcion}</td>
+                    <td><button onclick="eliminarHistorial(${index})">Eliminar</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+
+        // Función para imprimir el historial
+        function imprimirHistorial() {
+            window.print();
+        }
+
+        // Función para descargar el historial
+        function descargarHistorial() {
+            const table = document.getElementById('historialTable');
+            let csvContent = '';
+            table.querySelectorAll('tr').forEach(row => {
+                const rowData = Array.from(row.querySelectorAll('th, td')).map(cell => cell.textContent).join(',');
+                csvContent += rowData + '\r\n';
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'historial_inventario.csv');
+            a.click();
+        }
+
+        // Función para eliminar un registro del historial
+        function eliminarHistorial(index) {
+            let historial = JSON.parse(localStorage.getItem('historial')) || [];
+            historial.splice(index, 1); // Elimina el elemento en el índice dado
+            localStorage.setItem('historial', JSON.stringify(historial)); // Actualiza localStorage
+
+            // Actualiza la tabla
+            document.querySelector('#historialTable tbody').innerHTML = '';
+            historial.forEach((entry, idx) => {
+                const row = document.createElement('tr');
+                
+                const date = new Date(entry.fecha).toLocaleDateString();
+                const time = new Date().toLocaleTimeString();
+                row.innerHTML = `
+                    <td>${date}</td>
+                    <td>${time}</td>
+                    <td>${entry.monitoresCantidad}</td>
+                    <td>${entry.monitoresDisponibilidad}</td>
+                    <td>${entry.monitoresCantidad}</td>
+                    <td>${entry.monitoresDescripcion}</td>
+                    <td><button onclick="eliminarHistorial(${idx})">Eliminar</button></td>
+                `;
+                document.querySelector('#historialTable tbody').appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
