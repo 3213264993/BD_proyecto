@@ -59,13 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" name="Nombre_completo" placeholder="Nombre_completo" required>
             </div>
             <div class="mb-3">
-                <input type="email" class="form-control" name="Email" placeholder="Email" required>
-            </div>
-            <div class="mb-3 input-container">
-                <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" required>
-                <i class="bi bi-eye toggle-password" id="togglePassword"></i>
-            </div>
-            <div class="mb-3">
                 <select class="form-select" name="Tipo_documento" required>
                     <option value="" disabled selected>Selecciona tipo_documento</option>
                     <option value="CC">Cédula de Ciudadanía</option>
@@ -75,6 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control" name="Numero_documento" placeholder="Número_documento" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" name="Email" placeholder="Email" required>
+            </div>
+            <div class="mb-3 input-container">
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" required>
+                <i class="bi bi-eye toggle-password" id="togglePassword"></i>
             </div>
             <div class="d-grid">
                 <button type="submit" class="btn btn-success">Registrarse</button>

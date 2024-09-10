@@ -10,49 +10,6 @@ if (!$conexion) {
     die("Conexión fallida: " . mysqli_connect_error());
 }
 
-// Verificar si se envió el formulario para guardar una observación
-if (isset($_POST['enviar'])) {
-    // Obtener los datos del formulario
-    $Numero_Documento = $_POST['Numero_Documento'] ?? '';
-    $Observacion = $_POST['Observacion'] ?? '';
-    $fechaHora = date("Y-m-d H:i:s"); // Formato de fecha y hora
-
-    // Debugging: Verificar que el Número de Documento se recibe correctamente
-    if (empty($Numero_Documento)) {
-        echo "<script>alert('Error: El campo Número de Documento está vacío.');</script>";
-    } else {
-        echo "Número de Documento recibido: " . htmlspecialchars($Numero_Documento) . "<br>";
-        
-        // Comprobar si el Numero_Documento existe en la tabla usuarios
-        $comprobarUsuario = "SELECT * FROM usuarios WHERE Numero_Documento = ?";
-        $stmt = mysqli_prepare($conexion, $comprobarUsuario);
-        mysqli_stmt_bind_param($stmt, "s", $Numero_Documento);
-        mysqli_stmt_execute($stmt);
-        $resultadoUsuario = mysqli_stmt_get_result($stmt);
-
-        // Verificar si la consulta devolvió resultados
-        if ($resultadoUsuario) {
-            if (mysqli_num_rows($resultadoUsuario) > 0) {
-                echo "Número de Documento encontrado en la base de datos.<br>";
-                
-                // Insertar los datos en la base de datos
-                $insertar = "INSERT INTO observaciones (Numero_Documento, Observacion, Fecha_Hora) VALUES (?, ?, ?)";
-                $stmt = mysqli_prepare($conexion, $insertar);
-                mysqli_stmt_bind_param($stmt, "sss", $Numero_Documento, $Observacion, $fechaHora);
-                if (mysqli_stmt_execute($stmt)) {
-                    echo "<script>alert('Observación guardada correctamente.');</script>";
-                } else {
-                    echo "<script>alert('Error al guardar la observación: " . mysqli_error($conexion) . "');</script>";
-                }
-            } else {
-                echo "<script>alert('El Número de Documento no existe en la base de datos de usuarios.');</script>";
-            }
-        } else {
-            echo "<script>alert('Error en la consulta: " . mysqli_error($conexion) . "');</script>";
-        }
-    }
-}
-
 // Buscar observaciones por fecha
 $fechaBusqueda = $_POST['fecha'] ?? '';
 $query = "SELECT * FROM observaciones";
@@ -77,6 +34,7 @@ if (isset($_POST['eliminar'])) {
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>alert('Observación eliminada correctamente.');</script>";
         header("Refresh:0"); // Refrescar la página para mostrar los cambios
+        exit;
     } else {
         echo "<script>alert('Error al eliminar la observación: " . mysqli_error($conexion) . "');</script>";
     }
@@ -110,31 +68,32 @@ if (isset($_POST['eliminar'])) {
         <table id="tabla-observaciones">
             <thead>
                 <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Número_documento</th>
+                    <th>Fecha y Hora</th>
+                    <th>Número de Documento</th>
                     <th>Observaciones</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                while ($fila = mysqli_fetch_assoc($resultadoObservaciones)) {
-                    $fechaHora = explode(' ', $fila['Fecha_Hora']);
-                    $fecha = $fechaHora[0];
-                    $hora = $fechaHora[1];
-                    echo "<tr>";
-                    echo "<td>$fecha</td>";
-                    echo "<td>$hora</td>";
-                    echo "<td>" . htmlspecialchars($fila['Numero_documento']) . "</td>"; // Corregido: Nombre de columna sin tilde
-                    echo "<td>" . htmlspecialchars($fila['Observacion']) . "</td>";
-                    echo "<td>
-                            <form method='post' style='display:inline;'>
-                                <input type='hidden' name='id' value='{$fila['id']}'>
-                                <button type='submit' name='eliminar' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta observación?\");'>Eliminar</button>
-                            </form>
-                          </td>";
-                    echo "</tr>";
+                if ($resultadoObservaciones && mysqli_num_rows($resultadoObservaciones) > 0) {
+                    while ($fila = mysqli_fetch_assoc($resultadoObservaciones)) {
+                        // Concatenar fecha y hora en una sola columna, usando formato militar (24 horas)
+                        $fechaHora = date("d-m-Y H:i", strtotime($fila['Fecha_Hora']));
+                        echo "<tr>";
+                        echo "<td>$fechaHora</td>"; // Fecha y hora en una sola columna en formato militar
+                        echo "<td>" . htmlspecialchars($fila['Numero_documento']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fila['Observacion']) . "</td>";
+                        echo "<td>
+                                <form method='post' style='display:inline;'>
+                                    <input type='hidden' name='id' value='{$fila['id']}'>
+                                    <button type='submit' name='eliminar' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta observación?\");'>Eliminar</button>
+                                </form>
+                              </td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No se encontraron observaciones.</td></tr>";
                 }
                 ?>
             </tbody>

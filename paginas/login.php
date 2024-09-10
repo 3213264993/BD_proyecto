@@ -58,8 +58,25 @@ if (isset($_POST['Numero_Documento']) && isset($_POST['password'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/ingreso.css">
-   
+    <link rel="stylesheet" href="../CSS//ingreso.css">
+    <style>
+        body{
+            background-image: url(../img//SENA4.jpg);
+        }
+        /* Estilo personalizado para el botón de Solicitar nueva contraseña */
+        .btn-request-password {
+            background-color: #28a745; /* Color verde */
+            color: white;
+            padding: 8px 10px; /* Tamaño más pequeño */
+            font-size: 0.9rem;
+            margin-top: 20px; /* Separación adicional */
+        }
+
+        .btn-request-password:hover {
+            background-color: gray; 
+            color:black;
+        }
+    </style>
 </head>
 <body class="bg-light">
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
@@ -70,7 +87,7 @@ if (isset($_POST['Numero_Documento']) && isset($_POST['password'])) {
             <form id="loginForm" action="" method="POST">
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fas fa-id-card"></i></span>
-                    <input type="text" class="form-control" placeholder="Número de Documento" name="Numero_Documento" required>
+                    <input type="text" class="form-control" placeholder="Numero_Documento" name="Numero_Documento" required>
                 </div>
                 <div class="input-group mb-3 position-relative">
                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -79,7 +96,7 @@ if (isset($_POST['Numero_Documento']) && isset($_POST['password'])) {
                 </div>
                 <button type="submit" class="btn btn-primary btn-block w-100 mb-3">Ingresar</button>
                 <button type="button" class="btn btn-register w-100 mb-3" onclick="redirectTo('index.php')">Regístrese</button>
-                <a href="http://localhost/proyecto.cdae/paginas/contrase%C3%B1a.php" class="forgot-link text-decoration-none">¿Olvidaste tu contraseña?</a>
+                <button type="button" class="btn btn-request-password w-100" onclick="redirectToWhatsApp()">Solicitar nueva contraseña</button>
             </form>
         </div>
     </div>
@@ -89,6 +106,13 @@ if (isset($_POST['Numero_Documento']) && isset($_POST['password'])) {
     <script>
         function redirectTo(page) {
             window.location.href = page;
+        }
+
+        function redirectToWhatsApp() {
+            const phoneNumber = "3223691517";
+            const message = "Hola buen día, requiero restablecer mi contraseña de AmbiControl.";
+            const url = `https://wa.me/57${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
         }
 
         const togglePassword = document.querySelector('#togglePassword');

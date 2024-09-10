@@ -1,65 +1,78 @@
-.contenedor {
-    width: 40%; 
-    margin: 0 auto;  
-    background-color: #f7f7f7; 
-    color: #757575; 
-    font-family: 'Raleway', sans-serif; 
-    text-align: left;
-    padding: 30px; 
+body {
+    background-image: url(../img/SENA4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con algo de transparencia */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    padding: 2rem;
+    position: relative; /* Necesario para que el logo se posicione respecto a la tarjeta */
+    margin-top: 5rem;
+}
+
+.logo {
+    width: 40px; /* Tamaño del logo */
+    position: absolute;
+    top: 20px; /* Posición vertical del logo */
+    left: 20px; /* Posición horizontal del logo */
+}
+
+.form-content {
+    margin-top: 20px; /* Margen superior para evitar superposición con el logo */
 }
 
 h2 {
-    font-size: 30px; 
-    font-weight: 600; 
-    margin-bottom: 10px; 
+    color: #343a40;
+    font-size: 1.8rem; 
+    font-weight: bold;
 }
 
-.contenedor p {
-    font-size: 18px; 
-    font-weight: 500; 
-    margin-bottom: 20px; 
+.form-group label {
+    font-weight: bold;
 }
 
-.regisFrm input[type="text"], .regisFrm input[type="email"], .regisFrm input[type="password"] {   
-    width: 94.5%; 
-    padding: 10px; 
-    margin: 10px 0;  
-    border: none;
-    color: #000; 
-    font-weight: 500; 
-    font-family: 'Roboto', sans-serif; 
+.form-control {
+    border-radius: 5px;
+    font-size: 1.1rem; 
 }
 
-.boton-envio {
-    text-align: center;
-    margin-top: 20px; 
+.btn-primary {
+    background-color: #000000; /* Color negro para el botón */
+    border-color: #28a745;
+    padding: 0.75rem; 
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
 }
 
-.boton-envio input[type="submit"] { 
-    padding: 10px 0;  
-    width: 60%; 
-    font-family: 'Roboto', sans-serif; 
-    font-size: 18px; 
-    font-weight: 500; 
-    border: none;
-    outline: none;
-    color: #FFF; 
-    background-color: #2196F3; 
-    cursor: pointer;
+.btn-primary:hover {
+    background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+    border-color: #1e7e34;
 }
 
-.boton-envio input[type="submit"]:hover {
-    background-color: #055d54; 
+.alert {
+    margin-top: 20px;
 }
 
-a {
-    float: right;
+@media (max-width: 768px) {
+    .card {
+        margin: 20px;
+    }
 }
-
-p.exito {
-    color: #34A853;
-}
-
-p.error {
-    color: #EA4335;
+.logo {
+    width: 30px; /* Ajusta el tamaño del logo a un valor más pequeño */
+    position: absolute;
+    top: 20px; /* Posición vertical del logo */
+    left: 20px; /* Posición horizontal del logo */
 }

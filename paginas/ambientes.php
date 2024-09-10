@@ -11,6 +11,8 @@ if (!$conexion) {
     die("Conexión fallida: " . mysqli_connect_error());
 }
 
+$mensaje = ""; // Variable para almacenar el mensaje
+
 // Procesar el formulario si se ha enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Numero_documento = $_POST['Numero_documento'];
@@ -24,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_stmt_bind_param($stmt, "ssss", $Numero_documento, $tipo_asignacion, $Numero_ambiente, $fechaHora);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('Asignación guardada correctamente.'); window.location.href='pagina2.html';</script>";
+        $mensaje = "Asignación guardada correctamente.";
     } else {
-        echo "<script>alert('Error: " . mysqli_error($conexion) . "');</script>";
+        $mensaje = "Error: " . mysqli_error($conexion);
     }
 
     // Cerrar la declaración
@@ -46,30 +48,30 @@ mysqli_close($conexion);
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/miambi.css">
+</head>
 <body>
     <div class="container mt-3">
         <div class="text-center mb-3">
             <img src="../img/logosena.png" alt="Logo SENA" class="logo">
         </div>
         <div class="d-flex justify-content-end mb-4">
-            <a href="http://localhost/proyecto.cdae/paginas/login.php" class="btn btn-home">Inicio
-            </a>
-            <a href="http://localhost/proyecto.cdae/paginas/inventario.php" class="btn btn-inventory">Inventario
-            </a>
+            <!-- Cambiar el enlace y el texto del botón -->
+            <a href="http://localhost/proyecto.cdae/paginas/pagina2.html" class="btn btn-home">Volver</a>
+            <a href="http://localhost/proyecto.cdae/paginas/inventario.php" class="btn btn-inventory">Inventario</a>
         </div>
         <h1 class="text-center mb-4">Registro de Asignación del Ambiente</h1>
+
+        <!-- Aquí se mostrará el mensaje -->
+        <?php if ($mensaje): ?>
+            <div class="alert alert-info text-center">
+                <?php echo $mensaje; ?>
+            </div>
+        <?php endif; ?>
+
         <form action="" method="post" name="assignment-form">
             <div class="form-group">
                 <label for="Numero_documento">Numero_documento:</label>
                 <input type="text" id="Numero_documento" name="Numero_documento" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="tipo">Tipo_asignación:</label>
-                <select id="tipo" name="tipo" class="form-control" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="tipo1">Entrada</option>
-                    <option value="tipo2">Salida</option>
-                </select>
             </div>
             <div class="form-group">
                 <label for="Numero_ambiente">Numero_ambiente:</label>
@@ -102,6 +104,14 @@ mysqli_close($conexion);
                     <option value="ambiente25">Ambiente De Soldadura</option>
                     <option value="ambiente26">Cuarto De Mantenimiento</option>
                     <option value="ambiente27">Auditorio</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo_Asignación:</label>
+                <select id="tipo" name="tipo" class="form-control" required>
+                    <option value="" disabled selected>Seleccione...</option>
+                    <option value="Entrada">Entrada</option>
+                    <option value="Salida">Salida</option>
                 </select>
             </div>
             <div class="form-footer mb-3">
@@ -114,6 +124,6 @@ mysqli_close($conexion);
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

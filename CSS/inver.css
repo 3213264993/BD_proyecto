@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     margin: 0;
     padding: 0;
@@ -9,153 +10,300 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .container {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     max-width: 800px;
-    width: 100%;
-    text-align: center;
-    position: relative;
+    width: 80%;
+    margin: 0 auto;
 }
+
 .logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px; 
-    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    width: 100px;
 }
+
 .title {
-    margin-top: 60px; 
+    text-align: center;
     margin-bottom: 20px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
+
 th, td {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #333; /* Líneas de tabla más marcadas */
+    text-align: center;
 }
+
 .options {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
+
 .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 50px;
 }
-.submit-button {
-    padding: 10px 26px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 20px;
-}
-.submit-button:hover {
-    background-color: #218838;
-}
+
 input[type="number"], input[type="text"] {
     width: 100%;
-    padding: 5px;
+    max-width: 300px;
+    padding: 8px;
     box-sizing: border-box;
 }
+
 .date-time-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-/* Estilo para el botón de historial */
-.history-button {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin-top: 10px; /* Añadir espacio entre los botones */
-}
 
-.history-button:hover {
-    background-color: grey;
-}
-
-/* Estilo para el botón de enviar */
-.submit-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 110px; /* Botón más largo */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin-bottom: 10px; /* Añadir espacio entre los botones */
-}
-
-.submit-button:hover {
-    background-color: #45a049;
-}
-
-.form-group {
+.form-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar los botones */
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.submit-button {
-    background-color: green;
-    color: white;
+.button {
     padding: 10px 20px;
     border: none;
+    border-radius: 5px;
+    color: white;
     cursor: pointer;
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
+    font-size: 16px;
 }
-.submit-button:hover {
+
+.start-btn {
+    background-color: green;
+    margin-right: auto; /* Alinea el botón a la izquierda */
+}
+
+.start-btn:hover {
     background-color: darkgreen;
 }
-.history-button {
-    background-color: black;
-    color: white;
-    padding: 10px 10px;
-    border: none;
-    cursor: pointer;
+
+.save-btn {
+    background-color: blue; /* Puedes cambiar el color según prefieras */
+    margin: 0 auto; /* Centra el botón */
     display: block;
-    width: 100%;
 }
-.history-button:hover {
-    background-color: grey;
+
+.save-btn:hover {
+    background-color: darkblue;
 }
+
+.historial-btn {
+    background-color: green; /* Color del botón de Historial */
+    margin-left: 60px; /* Alinea el botón a la derecha */
+}
+
+.historial-btn:hover {
+    background-color: darkgreen;
+}
+
 .form-table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.start-btn {
+    background-color: green;
+}
+
+.save-btn {
+    background-color: black;
+    color: #fff;
+}
+
+.historial-btn {
+    background-color: green;
+}
+
+.form-table th, .form-table td {
+    border: 1px solid #000; /* Ajusta el grosor y color de las líneas de la tabla */
 }
 .form-table th, .form-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #000000; /* Líneas de tabla más marcadas */
+    padding: 8px;
+    text-align: left;
 }
-.form-table .options input {
-    margin-right: 5px;
+
+.form-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.form-table td {
+    background-color: #ffffff;
 }
 .container {
-    width: 80%;
-    margin: 0 auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con menor transparencia */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .logo {
-    width: 100px;
     display: block;
     margin: 0 auto;
+    width: 150px;
 }
+
 .title {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px; /* Espacio entre las tablas */
+}
+
+.table-container {
+    flex: 1;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Asegura columnas del mismo ancho */
+}
+
+.form-table th, .form-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    width: 25%; /* Ajusta el ancho de cada columna */
+}
+
+.options label {
+    display: block;
+    margin-bottom: 5px; /* Espacio entre opciones de disponibilidad */
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.start-btn {
+    background-color: green;
+}
+
+.save-btn {
+    background-color: black;
+    color: #fff;
+}
+
+.historial-btn {
+    background-color: green;
+}
+.form-table th, .form-table td {
+border: 1px solid black;
+padding: 8px;
+text-align: left;
+vertical-align: middle; /* Alinea verticalmente el contenido */
+width: 25%; /* Ajusta el ancho de cada columna */
+}
+
+.options {
+display: flex;
+align-items: center; /* Alinea verticalmente los elementos dentro de la celda */
+gap: 5px; /* Espacio entre los elementos */
+width: 100%; /* Asegura que el contenido ocupe el ancho de la celda */
+}
+
+.options input[type="radio"] {
+margin-right: 2px; /* Espacio entre el radio button y el texto */
+}
+.form-table th, .form-table td {
+border: 1px solid black;
+padding: 8px;
+text-align: left;
+vertical-align: middle; /* Alinea verticalmente el contenido */
+width: 25%; /* Ajusta el ancho de cada columna */
+box-sizing: border-box; /* Incluye el padding y border en el ancho de la celda */
+}
+
+.options {
+display: flex;
+justify-content: space-between; /* Distribuye los elementos en la celda */
+align-items: center; /* Alinea verticalmente los elementos dentro de la celda */
+width: 160%; /* Asegura que el contenido ocupe el ancho completo de la celda */
+}
+
+.options label {
+flex: 8; /* Permite que los elementos de la celda ocupen espacio igual */
+text-align: center; /* Centra el texto dentro de las etiquetas */
+}
+
+.options input[type="radio"] {
+margin-right: 5px; /* Espacio entre el radio button y el texto */
 }

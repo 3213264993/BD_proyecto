@@ -1,89 +1,142 @@
 
-html, body {
-height: 100%;
-margin: 0;
-}
 
-body {
-    background-image: url('../img/SENA4.jpg'); background-size: cover;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
-/* Estilos generales de la tabla */
-.form-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 5px;
-    font-size: 20px;
-    text-align: left;
-    color: black;
-}
-
-.form-table th, .form-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-}
-
-.form-table thead {
-    background-color: #f2f2f2;
-}
-
-.form-group {
-    display: flex;
-    justify-content: center; /* Centra los botones */
-    gap: 250px; /* Espacio entre los botones */
-    margin-top: 20px;
-}
-
-/* Estilo para el botón de imprimir */
-.print-button {
-    background-color: #4CAF50;
+button {
+    background-color: #0a0a0a; /* Color verde para los botones */
     color: white;
     border: none;
     padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-.print-button:hover {
-    background-color: grey;
+button#downloadButton {
+    background-color: #27ce51; /* Color azul para el botón de descarga */
+}
+/* Estilo para el logo */
+.logo {
+    display: block;
+    margin: 0 auto 20px auto; /* Centra el logo y añade margen inferior */
+    width: 100px; /* Ajusta el tamaño del logo aquí */
+    height: auto; /* Mantiene la proporción del logo */
 }
 
-/* Estilo para el botón de descargar */
-.download-button {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.download-button:hover {
-    background-color: grey;
-}
-.container {
-    background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    max-width: 860px;
-    margin: 50px auto;
-}
+/* Estilo para el título */
 .title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Espacio debajo del título */
 }
+
+/* Espacio entre el formulario de búsqueda y la tabla */
+form {
+    margin-bottom: 30px; /* Ajusta la separación aquí */
+}
+body {
+    background-image: url(../img/SENA4.jpg);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Ancho del recuadro, ajusta según sea necesario */
+    max-width: 1200px; /* Ancho máximo del recuadro */
+}
+/* Estilo para el body */
+body {
+    background-image: url('../img/SENA4.jpg');
+    background-size: cover; /* Asegura que la imagen de fondo cubra toda la pantalla */
+    background-position: center;
+    background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Color blanco con transparencia */
+    width: 80%; /* Ajusta el ancho según sea necesario */
+    max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    box-sizing: border-box;
+    position: relative; /* Necesario para el posicionamiento absoluto del logo */
+}
+
+/* Estilo para el logo */
 .logo {
-    width: 100px;
     position: absolute;
     top: 10px;
     left: 10px;
+    width: 100px; /* Ajusta el tamaño del logo aquí */
+    height: auto; /* Mantiene la proporción del logo */
 }
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+
+/* Estilo para el título */
+.title {
+    text-align: center;
+    margin-top: 0; /* Alinea el título en la parte superior del contenedor */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Estilo para el formulario */
+form {
+    text-align: center; /* Centra el formulario */
+    margin-bottom: 30px; /* Ajusta la separación entre el formulario y la tabla */
+}
+
+/* Estilo para la tabla */
+.form-table {
+    width: 100%; /* Asegura que la tabla ocupe todo el ancho del contenedor */
+    border-collapse: collapse;
+}
+
+/* Estilo para las celdas de la tabla */
+.form-table th, .form-table td {
+    border: 1px solid #ddd; /* Bordes más definidos */
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para los encabezados de la tabla */
+.form-table th {
+    background-color: #f4f4f4;
+}
+
+/* Estilo para los botones */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #000000; /* Color verde para los botones */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button#downloadButton {
+    background-color: #1d8626; /* Color azul para el botón de descarga */
 }

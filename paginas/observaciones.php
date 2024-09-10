@@ -10,6 +10,8 @@ if (!$conexion) {
     die("Conexión fallida: " . mysqli_connect_error());
 }
 
+$mensaje = ""; // Asegúrate de que la variable esté inicializada
+
 // Verificar si se envió el formulario de observaciones
 if (isset($_POST['enviar'])) {
     // Obtener los datos del formulario
@@ -27,19 +29,19 @@ if (isset($_POST['enviar'])) {
         $resultadoObservacion = mysqli_query($conexion, $verificarObservacion);
 
         if (mysqli_num_rows($resultadoObservacion) > 0) {
-            echo "<script>alert('Ya se ha registrado una observación para este documento en el mismo momento.');</script>";
+            $mensaje = "Ya se ha registrado una observación para este documento en el mismo momento.";
         } else {
             // Insertar los datos en la base de datos
             $insertar = "INSERT INTO observaciones (Numero_Documento, Observacion, Fecha_Hora) 
                          VALUES ('$Numero_Documento', '$Observacion', '$fechaHora')";
             if (mysqli_query($conexion, $insertar)) {
-                echo "<script>alert('Observación guardada correctamente.');</script>";
+                $mensaje = "Observación guardada correctamente.";
             } else {
-                echo "<script>alert('Error: " . mysqli_error($conexion) . "');</script>";
+                $mensaje = "Error: " . mysqli_error($conexion);
             }
         }
     } else {
-        echo "<script>alert('El Número de Documento no existe en la base de datos de usuarios.');</script>";
+        $mensaje = "El Número de Documento no existe en la base de datos de usuarios.";
     }
 }
 
@@ -53,24 +55,38 @@ mysqli_close($conexion);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Observaciones del Ambiente</title>
-    <link rel="stylesheet" href="../CSS//miobser.css">
+    <link rel="stylesheet" href="../CSS/miobser.css">
     <style>
-body{
-    background-image: url("../img/SENA4.jpg");
-}
-
-</style>
+        body {
+            background-image: url("../img/SENA4.jpg");
+        }
+        .alert {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <img src="../img/logosena.png" alt="Logo SENA" class="logo">
         <div class="header">
-            <a href="http://localhost/proyecto.cdae/paginas/login.php" class="btn-nav btn-black">Inicio</a>
+            <a href="http://localhost/proyecto.cdae/paginas/ambientes.php" class="btn-nav btn-black">Volver</a>
         </div>
         <h1>Observaciones del Ambiente</h1>
+
+        <!-- Mostrar mensaje -->
+        <?php if ($mensaje): ?>
+            <div class="alert">
+                <?php echo $mensaje; ?>
+            </div>
+        <?php endif; ?>
+
         <form action="" method="post">
             <div class="form-group">
-                <label for="Numero_Documento">Numero_documento:</label>
+                <label for="Numero_Documento">Numero_Documento:</label>
                 <input type="text" id="Numero_Documento" name="Numero_Documento" required>
             </div>
             <div class="form-group">
@@ -85,4 +101,3 @@ body{
     </div>
 </body>
 </html>
-
